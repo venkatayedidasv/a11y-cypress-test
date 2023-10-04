@@ -9,7 +9,7 @@
   "description": "test",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "cypress run --config video=true"
+    "test": "cypress run --config video=false"
   },
   "author": "Venkata Yedida",
   "license": "ISC"
