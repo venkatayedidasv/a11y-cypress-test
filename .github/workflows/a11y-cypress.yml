@@ -19,8 +19,7 @@ jobs:
         with:
           start: npm test
           browser: chrome
-        env:
-          CYPRESS_TEST_URL: https://example.cypress.io
+          env: CYPRESS_TEST_URL=https://example.cypress.io
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
