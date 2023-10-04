@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const fs = require('fs');
 
 module.exports = defineConfig({
   // Your other Cypress configuration options here
@@ -16,10 +17,15 @@ module.exports = defineConfig({
         },
         table(message) {
           console.table(message);
-
+          fs.appendFile('./cypress/reports/log.json', JSON.stringify(message, null, 2) + '\n', (err) => {
+                      if (err) {
+                        console.error('Error writing to log.json:', err);
+                      }
+                      });
           return null;
         },
       });
     },
   },
 });
+
