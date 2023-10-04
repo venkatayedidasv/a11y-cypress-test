@@ -1,4 +1,9 @@
 {
+  "devDependencies": {
+    "axe-core": "^4.7.2",
+    "cypress": "^12.13.0",
+    "cypress-axe": "^1.4.0"
+  },
   "name": "a11y-cypress-test",
   "version": "1.0.0",
   "description": "test",
