@@ -31,5 +31,5 @@ jobs:
         with:
           name: a11y-report
           path: |
-            cypress/reports/*.json
+            log.json
 
