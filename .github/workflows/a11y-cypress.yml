@@ -1,7 +1,7 @@
 name: Cypress Tests
 
 on:
-  pull_request:
+  push:
     branches: [main]
   workflow_dispatch:
 
@@ -19,8 +19,8 @@ jobs:
         with:
           start: npm test
           browser: chrome
-          #env: test_url=https://www.ikea.com/se/sv/
-          env: test_url=https://example.cypress.io
+          env: test_url=https://www.ikea.com/se/sv/
+          #env: test_url=https://example.cypress.io
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
