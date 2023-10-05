@@ -19,7 +19,8 @@ jobs:
         with:
           start: npm test
           browser: chrome
-          env: test_url=https://www.ikea.com/se/sv/
+          #env: test_url=https://www.ikea.com/se/sv/
+          env: test_url=https://example.cypress.io
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
