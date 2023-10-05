@@ -5,16 +5,20 @@ env:
   repo: a11y-cypress-test
   
 on:
-  repository_dispatch:
-    types: [run-ping]
+  workflow_dispatch:
+    inputs:
+      my_variable:
+        description: 'A custom variable'
+        required: true
   push:
     branches: [main]
-  workflow_dispatch:
 
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
+      - name: Display Variable
+        run: echo "The custom variable is ${{ github.event.inputs.my_variable }}"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
