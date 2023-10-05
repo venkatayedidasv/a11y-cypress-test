@@ -29,7 +29,7 @@ jobs:
           start: npm test
           browser: chrome
           #env: test_url=https://www.ikea.com/se/sv/
-          env: test_url=https://example.cypress.io
+          env: test_url=${{ github.event.inputs.my_variable }}
           #env: test_url=https://www2.hm.com/sv_se/index.html
         continue-on-error: true
       - name: Upload Cypress test videos
