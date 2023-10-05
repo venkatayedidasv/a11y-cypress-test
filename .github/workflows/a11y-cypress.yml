@@ -1,10 +1,15 @@
 name: Cypress Tests
 
+env:
+  owner: venkatayedidasv
+  repo: a11y-cypress-test
+  
 on:
+  repository_dispatch:
+    types: [run-ping]
   push:
     branches: [main]
   workflow_dispatch:
-
 
 jobs:
   cypress-run:
@@ -20,8 +25,8 @@ jobs:
           start: npm test
           browser: chrome
           #env: test_url=https://www.ikea.com/se/sv/
-          #env: test_url=https://example.cypress.io
-          env: test_url=https://www2.hm.com/sv_se/index.html
+          env: test_url=https://example.cypress.io
+          #env: test_url=https://www2.hm.com/sv_se/index.html
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
