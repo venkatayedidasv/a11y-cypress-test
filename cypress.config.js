@@ -18,10 +18,10 @@ module.exports = defineConfig({
         table(message) {
           console.table(message);
           // Determine the path to the log.json file
-          const logFilePath = path.join(__dirname, 'log.json');
+          const logFilePath = path.join(__dirname, 'result.json');
           fs.appendFile(logFilePath, JSON.stringify(message, null, 2) + '\n', (err) => {
           if (err) {
-             console.error('Error writing to log.json:', err);
+             console.error('Error writing to result.json:', err);
           }
           });
           return null;
