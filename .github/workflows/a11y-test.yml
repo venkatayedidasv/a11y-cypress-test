@@ -10,8 +10,6 @@ on:
       my_variable:
         description: 'A custom variable'
         required: true
-  push:
-    branches: [main]
 
 jobs:
   cypress-run:
