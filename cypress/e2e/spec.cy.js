@@ -24,6 +24,7 @@ function terminalLog(violations) {
 describe('template spec', () => {
   it('passes', () => {
     const testUrl = Cypress.env('test_url');
+    cy.log(`test_url: ${testUrl}`);
     cy.visit(testUrl)
     cy.injectAxe()
     cy.checkA11y(null, null, terminalLog)
