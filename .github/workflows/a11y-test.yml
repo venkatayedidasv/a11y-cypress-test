@@ -28,7 +28,7 @@ jobs:
         with:
           start: npm test
           browser: chrome
-          env: test_url=${{ github.event.inputs.my_variable }}
+          env: CYPRESS_test_url=${{ github.event.inputs.my_variable }}"
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
