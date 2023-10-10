@@ -28,9 +28,7 @@ jobs:
         with:
           start: npm test
           browser: chrome
-          #env: test_url=https://www.ikea.com/se/sv/
           env: test_url=${{ github.event.inputs.my_variable }}
-          #env: test_url=https://www2.hm.com/sv_se/index.html
         continue-on-error: true
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
@@ -38,13 +36,12 @@ jobs:
           name: cypress-videos
           path: |
             cypress/videos/*.mp4
+      - name: Set Artifact Name
+        id: set-artifact-name
+        run: echo "::set-output name=artifact_name::a11y-report-$(echo ${{ github.event.inputs.my_variable }} | tr '/' '-')"
       - name: Upload A11y test reports
         uses: actions/upload-artifact@v3
         with:
-          name: a11y-report
+          name: ${{ steps.set-artifact-name.outputs.artifact_name }}
           path: |
             log.json
-
-
-            
-
