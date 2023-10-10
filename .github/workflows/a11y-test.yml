@@ -28,7 +28,8 @@ jobs:
 
       - name: Run
         run: |
-          npx cypress run --env test_url=${{ github.event.inputs.my_variable }}
+          #npx cypress run --env test_url=${{ github.event.inputs.my_variable }}
+          npx cypress run --env test_url=https://example.cypress.io
 
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
