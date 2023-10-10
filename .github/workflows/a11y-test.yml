@@ -40,11 +40,12 @@ jobs:
 
       - name: Set Artifact Name
         id: set-artifact-name
-        run: echo "::set-output name=artifact_name::a11y-report-$(echo ${{ github.event.inputs.my_variable }} | tr '/' '-')"
+        run: |
+          echo "artifact_name=a11y-report-$(echo ${{ github.event.inputs.my_variable }} | tr '/' '-')" >> $GITHUB_ENV
 
       - name: Upload A11y test reports
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.set-artifact-name.outputs.artifact_name }}
+          name: ${{ env.artifact_name }}
           path: |
             log.json
