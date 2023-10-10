@@ -38,14 +38,15 @@ jobs:
           path: |
             cypress/videos/*.mp4
 
-      - name: Set Artifact Name
-        id: set-artifact-name
+      - name: Set Environment Variable
         run: |
-          echo "artifact_name=a11y-report-$(echo ${{ github.event.inputs.my_variable }} | tr '/' '-')" >> $GITHUB_ENV
+          # Extract the domain from the URL
+          domain=$(echo "${{ github.event.inputs.my_variable }}" | sed -e 's|http[s]*://||' -e 's|/.*||')
+          echo "ARTIFACT_NAME=$domain" >> $GITHUB_ENV
 
       - name: Upload A11y test reports
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.artifact_name }}
+          name: ${{ env.ARTIFACT_NAME }}
           path: |
             log.json
