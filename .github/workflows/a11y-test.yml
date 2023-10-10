@@ -17,17 +17,28 @@ jobs:
     steps:
       - name: Display Variable
         run: echo "The custom variable is ${{ github.event.inputs.my_variable }}"
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cypress run with env
+        uses: ./
+        with:
+          working-directory: cypress/e2e
+          env: test_url=${{ github.event.inputs.my_variable }}"
+          spec: cypress/e2e/spec.cy.js
+
       - name: Install dependencies
         run: npm install
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           start: npm test
           browser: chrome
-          env: CYPRESS_test_url=${{ github.event.inputs.my_variable }}"
+          ## env: test_url=${{ github.event.inputs.my_variable }}
         continue-on-error: true
+
       - name: Upload Cypress test videos
         uses: actions/upload-artifact@v3
         with:

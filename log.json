@@ -1,0 +1,20 @@
+[
+  {
+    "id": "aria-dialog-name",
+    "impact": "serious",
+    "description": "Ensures every ARIA dialog and alertdialog node has an accessible name",
+    "nodes": 1
+  },
+  {
+    "id": "link-name",
+    "impact": "serious",
+    "description": "Ensures links have discernible text",
+    "nodes": 11
+  },
+  {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "description": "Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+    "nodes": 4
+  }
+]
