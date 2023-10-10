@@ -23,7 +23,7 @@ function terminalLog(violations) {
 
 describe('template spec', () => {
   it('passes', () => {
-    const testUrl = Cypress.env('CYPRESS_TEST_URL');
+    const testUrl = Cypress.env('test_url');
     cy.log(`test_url: ${testUrl}`);
     cy.visit(testUrl)
     cy.injectAxe()
