@@ -30,7 +30,7 @@ jobs:
           start: npm test
           browser: chrome
         env:
-          test_url=${{ github.event.inputs.my_variable }}
+          CYPRESS_TEST_URL=${{ github.event.inputs.my_variable }}
         continue-on-error: true
 
       - name: Upload Cypress test videos
